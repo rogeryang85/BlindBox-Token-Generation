@@ -15,7 +15,7 @@ public class Detection {
     ArrayList<String> tokens = new ArrayList<String>(); 
     int size;
     int count=0; 
-    String [] hashtable; 
+    boolean [] hashtable; 
     public Detection(String [] therules, String thetext, int size) // initialization 
     {
         this.size=size; 
