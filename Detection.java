@@ -26,7 +26,11 @@ public class Detection {
         int currentstart=0; 
         while(text.length()>=size)
         {
-           
+           if(text.length()-currentstart+1<size)
+           {
+               tokens.add(text.substring(currentstart, text.length()); 
+               break;
+           }
            String temp = text.substring(currentstart, currentstart+size-1); 
            tokens.add(temp); 
            currentstart +=size; 
