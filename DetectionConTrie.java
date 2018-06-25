@@ -5,18 +5,19 @@
  */
 package github;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author roger
  */
-import java.util.*; 
-public class Detection {
+public class DetectionConTrie {
     String [] rules; 
     ArrayList<String> tokens = new ArrayList<String>(); 
     int size;
     int count=0; 
-    RBT tree = new RBT(); 
-    public Detection(String [] therules, String thetext, int size) // initialization 
+    Trie trie = new Trie();  
+    public DetectionConTrie(String [] therules, String thetext, int size) // initialization 
     {
         this.size=size; 
         rules= new String [therules.length]; 
@@ -37,20 +38,19 @@ public class Detection {
         }
         
     }
-    public int detect() //actual detection 
-    {   
+    public int detect()
+    {
+        
         for(int i=0; i<rules.length; i++)
         {
-            tree.put(rules[i].hashCode()); 
+            trie.put(rules[i], i); 
         }
         for(String x : tokens)
         {
-            if(tree.isThere(x.hashCode()))
+            if(trie.get(x))
                 count++; 
         }
         return count; 
             
     }
-    
-   
 }
